@@ -379,6 +379,9 @@
 
             y=0;
 
+/*
+Main Clock Funtion
+*/
             function startClock(x,y){
                 var theDate,
                     s,
@@ -391,12 +394,12 @@
                     allExtM,
                     allAlarmM,
                     atime;
-
+// Get the date
                 theDate = new Date();
-                s = theDate.getSeconds();
-                mins = theDate.getMinutes();
-                m = mins + (s/60);
-                hours = theDate.getHours();
+                s = theDate.getSeconds(); // set the seconds
+                mins = theDate.getMinutes(); // set the minutes
+                m = mins + (s/60); // set the number of mins
+                hours = theDate.getHours();  // set the hours
                 h = twelvebased(hours + numberCorrection(el.hourCorrection)) + (m/60);
 
                 ctx.clearRect(-radius,-radius,el.size,el.size);
