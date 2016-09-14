@@ -1,9 +1,6 @@
 body {
-	padding: 50px 0px 0px 0px;
-	margin: 0;
 	font-family: 'PT sans';
 	color: #222;
-	text-align: center;
 	-webkit-transition-duration: .1s;
 	-moz-transition-duration: .1s;
 	-o-transition-duration: .1s;
@@ -23,17 +20,21 @@ body {
 	background-size: cover;
 }
 
-h2 {
-	font-size: 30px;
-	color: #000;
-	text-shadow: 1px 1px 1px #fff;
+h1,
+h2,
+h3 {
+	
+	text-shadow: 1px 1px 1px #AAA;
 }
 
+h1 {
+	font-size: 3em;
+}
+h2 {
+	font-size: 2em;
+}
 h3 {
-	font-size: 20px;
-	color: #000;
-	text-shadow: 1px 1px 1px #fff;
-	margin: 50px 0px 10px 0px;
+	font-size: 1em;
 }
 
 canvas {}
@@ -47,4 +48,12 @@ canvas {}
 
 .clock {
 	display: inline;
+}
+
+#bond-logo {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	float: right;
+	clear: both;
 }

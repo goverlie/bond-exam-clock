@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://meyerweb.com/eric/tools/css/reset/reset.css' rel="stylesheet" type="text/css">
 	<link rel="stylesheet" media="screen" href="css/main.css" />
 	<!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -13,10 +14,16 @@
 </head>
 
 <body>
-	<div class="container">
-		<div id="myclock"></div>
-	</div>
+	<h3>Bond University</h3>
+	<h2>Exam Clock</h2>
 
+	<div class="container">
+
+		<div class="clock analog" id="myclock"></div>
+	</div>
+<div id="bond-logo">
+		<img src="img/bond-logo.png" />
+	</div>
 
 	<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.thooClock.js"></script>
@@ -31,10 +38,12 @@
 
 			//clock plugin constructor
 			$('#myclock').thooClock({
-				size: $(document).height() / 2.4,
+				size: $(document).height() / 1.4,
 				showNumerals: true,
-				brandText: 'Bond University',
-				brandText2: 'Exam Clock',
+				dialColor: '#184361',
+				dialBackgroundColor: 'transparent',
+				minuteHandColor: '#184361',
+				hourHandColor: '#184361',
 				onEverySecond: function() {
 					//callback that should be fired every second
 				}

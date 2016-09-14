@@ -404,14 +404,15 @@ Main Clock Funtion
 
                 ctx.clearRect(-radius,-radius,el.size,el.size);
 
-                drawDial(el.dialColor, el.dialBackgroundColor);
+                drawDial(el.dialColor, el.dialBackgroundColor); // draws the clockface
 
+// check if an alarm is defined
                 if(el.alarmTime !== undefined){
-                    drawAlarmHand(el.alarmTime, el.alarmHandColor, el.alarmHandTipColor);
+                    drawAlarmHand(el.alarmTime, el.alarmHandColor, el.alarmHandTipColor); // draw alarm hand
                 }
-                drawHourHand(h, el.hourHandColor);
-                drawMinuteHand(m, el.minuteHandColor);
-                drawSecondHand(s, el.secondHandColor);
+                drawHourHand(h, el.hourHandColor); // draw hour hand
+                drawMinuteHand(m, el.minuteHandColor); // draw minute hand
+                drawSecondHand(s, el.secondHandColor); // draw second hand
 
                 //trigger every second custom event
                 y+=1;
