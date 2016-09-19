@@ -8,37 +8,99 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='http://meyerweb.com/eric/tools/css/reset/reset.css' rel="stylesheet" type="text/css">
 	<link rel="stylesheet" media="screen" href="css/main.css" />
+	<link rel="stylesheet" media="screen" href="css/jquery.timepicker.css" />
 	<!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
 
 <body>
-	<h3>Bond University</h3>
-	<h2>Exam Clock</h2>
+
 
 	<div class="container">
+		<div id="app-info">
+			<h2>Exam Clock</h2>
+		</div>
+		<div id="exam-info">
+			<form action='#'>
+				<label for='subject-code'>Subject Code</label>
+				<input type="text" name='subject-code' id='subject-code' placeholder="enter code"></input>
+
+				<label for='perusal-time'>Perusal (minutes)</label>
+				<input name='perusal-time' id='perusal-time' placeholder="0">
+				</input> 
+
+				<p id="exam-times">
+					<label for='start-time'>Start Time</label>
+					<input type="text" name='start-time' id='start-time' class='time start' placeholder="Exam Start Time"></input>
+
+					<label for='end-time'>End Time</label>
+					<input type="text" name='end-time' id='end-time' class='time end' placeholder="Exam End Time"></input>
+				</p>
+				<label for='password'>Password</label>
+				<input type="text" name='password' id='password' placeholder="No password"></input>
+
+				<label for='additional-notes'>Additional Notes</label>
+				<textarea name='additional-notes' id='additional-notes' rows="8"></textarea>
+			</form>
+		</div>
 
 		<div class="clock analog" id="myclock"></div>
 	</div>
-<div id="bond-logo">
+	<div id="bond-logo">
 		<img src="img/bond-logo.png" />
 	</div>
 
 	<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/datepair.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.thooClock.js"></script>
 	<script language="javascript">
 		var intVal, myclock;
+
+		function updateClockSelectors() {
+
+
+
+		}
 
 		$(window).resize(function() {
 			window.location.reload()
 		});
 
 		$(document).ready(function() {
+			//timepicker constructor
+			$('#exam-times .time').timepicker({
+				'scrollDefault': 'now',
+				'timeFormat': 'g:ia',
+				'step': 15,
+				'showDuration': true,
+				'forceRoundTime': false
+			});
+			// initialize datepair
+			var examTimes = document.getElementById('exam-times');
+			var datepair = new Datepair(examTimes);
+
+			//initialize filter
+			$("#subject-code").mask("aaaa99-999", {
+				placeholder: " "
+			});
+
+			//setup background removals on inputs
+			$('input').on('blur', function() {
+				$(this).addClass("bg-off");
+				$(this).removeClass("bg-on");
+			});
+			$('input').on('focus', function() {
+				$(this).addClass("bg-on");
+				$(this).removeClass("bg-off");
+			});
+
 
 			//clock plugin constructor
 			$('#myclock').thooClock({
-				size: $(document).height() / 1.4,
+				size: $(document).height() / 1.25,
 				showNumerals: true,
 				dialColor: '#184361',
 				dialBackgroundColor: 'transparent',
