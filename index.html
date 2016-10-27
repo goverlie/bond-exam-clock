@@ -53,48 +53,63 @@
 	<!-- Begin page content -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4" id="exam-info">
+			<div class="col-sm-3 col-md-4" id="exam-info">
 				<form action='#'>
 					<div class="row">
-						<label for='subject-code'>Subject Code</label>
-						<input type="text" name='subject-code' id='subject-code' placeholder="enter code"></input>
+						<div class="col-md-12">
+							<label for='subject-code'>Subject Code</label>
+							<input type="text" name='subject-code' id='subject-code' placeholder="enter code"></input>
+						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-6">
 							<label for='perusal-time'>Perusal (minutes)</label>
 							<input name='perusal-time' id='perusal-time' placeholder="0"></input>
 						</div>
-						<div class="col-md-2">
-							<label for='exam-duration'>Exam Duration (minutes)</label>
+						<div class="col-md-6">
+							<label for='exam-duration'>	Duration (minutes)</label>
 							<input name='exam-duration' id='exam-duration' placeholder="0"></input>
 						</div>
 					</div>
-					<p id="exam-times">
-						<label for='start-time'>Start Time</label>
-						<input type="text" name='start-time' id='start-time' class='time start' placeholder="Exam Start Time"></input>
-
-						<label for='end-time'>End Time</label>
-						<input type="text" name='end-time' id='end-time' class='time end' placeholder="Exam End Time"></input>
-					</p>
-					<label for='password'>Password</label>
-					<input type="text" name='password' id='password' placeholder="No password"></input>
-
-					<label for='additional-notes'>Additional Notes</label>
-					<textarea name='additional-notes' id='additional-notes' rows="8"></textarea>
+					<div class="row" id="exam-times">
+						<div class="col-md-6">
+							<label for='start-time'>Exam Start</label>
+							<input type="text" name='start-time' id='start-time' class='time start' placeholder="Time"></input>
+						</div>
+						<div class="col-md-6">
+							<label for='end-time'>Exam End</label>
+							<input type="text" name='end-time' id='end-time' class='time end' placeholder="Time"></input>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for='password'>Password</label>
+							<input type="text" name='password' id='password' placeholder="No password"></input>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for='additional-notes'>Additional Notes</label>
+							<textarea name='additional-notes' id='additional-notes' rows="8"></textarea>
+						</div>
+					</div>
 				</form>
 			</div>
 
-			<div class="col-md-7 col-md-offset-1">
+			<div class="col-sm-9 col-md-8">
 				<div class="row">
-					<div id="digitalClock" class="light">
-						<div class="display">
-							<div class="digits"></div>
-							<div class="ampm"></div>
+					<div class="col-md-12 light" id="digitalClock">
+						<div >
+							<div class="display">
+								<div class="digits"></div>
+								<div class="ampm"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div id="analogClock"></div>
+					<div class="col-md-12" id="analogClock">
+					</div>
 				</div>
 			</div>
 		</div>
