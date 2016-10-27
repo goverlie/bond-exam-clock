@@ -66,11 +66,11 @@ input[type="text"],
 #exam-info label,
 #exam-info input,
 #exam-info textarea {
-	display: block;
+	/*display: block;*/
 }
 
 #myclock {
-	width: 100%;
+	/*width: 100%;*/
 	text-align: center;
 	float: none;
 }
