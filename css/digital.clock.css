@@ -1,0 +1,297 @@
+/*-------------------------
+	The clocks
+--------------------------*/
+
+#digitalClock {
+	zoom: 4.5;
+	margin: 20% auto;
+}
+
+#digitalClock:after {}
+
+#digitalClock .display {}
+
+#digitalClock .display .digits {
+	float: left;
+}
+
+
+/*-------------------------
+	Light color theme
+--------------------------*/
+
+#digitalClock.light {}
+
+#digitalClock.light:after {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#digitalClock.light .digits div span {
+	background-color: #184361;
+	border-color: #184361;
+}
+
+#digitalClock.light .digits div.dots:before,
+#digitalClock.light .digits div.dots:after {
+	background-color: #F3A829;
+	border-radius: 10px;
+}
+
+#digitalClock.light .display {}
+
+
+/*-------------------------
+	The Digits
+--------------------------*/
+
+#digitalClock .digits div {
+	text-align: left;
+	position: relative;
+	width: 14px;
+	height: 25px;
+	display: inline-block;
+	margin: 0 2px;
+}
+
+#digitalClock .digits div span {
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: 0.15s;
+	-moz-transition: 0.15s;
+	transition: 0.15s;
+}
+
+#digitalClock .digits div span:before,
+#digitalClock .digits div span:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 2px solid transparent;
+}
+
+#digitalClock .digits .d1 {
+	height: 2px;
+	width: 14px;
+	top: 0;
+	left: 0px;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d1:before{	border-width:0 2px 2px 0;border-right-color:inherit;left:-2px;}
+#digitalClock .digits .d1:after{	border-width:0 0 2px 2px;border-left-color:inherit;right:-2px;}*/
+
+#digitalClock .digits .d2 {
+	height: 2px;
+	width: 14px;
+	top: 12px;
+	left: 0px;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d2:before{	border-width:1px 2px 1px;border-right-color:inherit;left:-4px;}
+#digitalClock .digits .d2:after{	border-width:1px 2px 1px;border-left-color:inherit;right:-4px;}*/
+
+#digitalClock .digits .d3 {
+	height: 2px;
+	width: 14px;
+	top: 24px;
+	left: 0px;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d3:before{	border-width:2px 2px 0 0;border-right-color:inherit;left:-2px;}
+#digitalClock .digits .d3:after{	border-width:2px 0 0 2px;border-left-color:inherit;right:-2px;}*/
+
+#digitalClock .digits .d4 {
+	width: 2px;
+	height: 14px;
+	top: 0px;
+	left: 0;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d4:before{	border-width:0 2px 2px 0;border-bottom-color:inherit;top:-2px;}
+#digitalClock .digits .d4:after{	border-width:0 0 2px 2px;border-left-color:inherit;bottom:-2px;}*/
+
+#digitalClock .digits .d5 {
+	width: 2px;
+	height: 14px;
+	top: 0px;
+	right: 0;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d5:before{	border-width:0 0 2px 2px;border-bottom-color:inherit;top:-2px;}
+#digitalClock .digits .d5:after{	border-width:2px 0 0 2px;border-top-color:inherit;bottom:-2px;}*/
+
+#digitalClock .digits .d6 {
+	width: 2px;
+	height: 14px;
+	top: 12px;
+	left: 0;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d6:before{	border-width:0 2px 2px 0;border-bottom-color:inherit;top:-2px;}
+#digitalClock .digits .d6:after{	border-width:0 0 2px 2px;border-left-color:inherit;bottom:-2px;}*/
+
+#digitalClock .digits .d7 {
+	width: 2px;
+	height: 14px;
+	top: 12px;
+	right: 0;
+	border-radius: 10px;
+}
+
+
+/*#digitalClock .digits .d7:before{	border-width:0 0 2px 2px;border-bottom-color:inherit;top:-2px;}
+#digitalClock .digits .d7:after{	border-width:2px 0 0 2px;border-top-color:inherit;bottom:-2px;}*/
+
+
+/* 1 */
+
+#digitalClock .digits div.one .d5,
+#digitalClock .digits div.one .d7 {
+	opacity: 1;
+}
+
+
+/* 2 */
+
+#digitalClock .digits div.two .d1,
+#digitalClock .digits div.two .d5,
+#digitalClock .digits div.two .d2,
+#digitalClock .digits div.two .d6,
+#digitalClock .digits div.two .d3 {
+	opacity: 1;
+}
+
+
+/* 3 */
+
+#digitalClock .digits div.three .d1,
+#digitalClock .digits div.three .d5,
+#digitalClock .digits div.three .d2,
+#digitalClock .digits div.three .d7,
+#digitalClock .digits div.three .d3 {
+	opacity: 1;
+}
+
+
+/* 4 */
+
+#digitalClock .digits div.four .d5,
+#digitalClock .digits div.four .d2,
+#digitalClock .digits div.four .d4,
+#digitalClock .digits div.four .d7 {
+	opacity: 1;
+}
+
+
+/* 5 */
+
+#digitalClock .digits div.five .d1,
+#digitalClock .digits div.five .d2,
+#digitalClock .digits div.five .d4,
+#digitalClock .digits div.five .d3,
+#digitalClock .digits div.five .d7 {
+	opacity: 1;
+}
+
+
+/* 6 */
+
+#digitalClock .digits div.six .d1,
+#digitalClock .digits div.six .d2,
+#digitalClock .digits div.six .d4,
+#digitalClock .digits div.six .d3,
+#digitalClock .digits div.six .d6,
+#digitalClock .digits div.six .d7 {
+	opacity: 1;
+}
+
+
+/* 7 */
+
+#digitalClock .digits div.seven .d1,
+#digitalClock .digits div.seven .d5,
+#digitalClock .digits div.seven .d7 {
+	opacity: 1;
+}
+
+
+/* 8 */
+
+#digitalClock .digits div.eight .d1,
+#digitalClock .digits div.eight .d2,
+#digitalClock .digits div.eight .d3,
+#digitalClock .digits div.eight .d4,
+#digitalClock .digits div.eight .d5,
+#digitalClock .digits div.eight .d6,
+#digitalClock .digits div.eight .d7 {
+	opacity: 1;
+}
+
+
+/* 9 */
+
+#digitalClock .digits div.nine .d1,
+#digitalClock .digits div.nine .d2,
+#digitalClock .digits div.nine .d3,
+#digitalClock .digits div.nine .d4,
+#digitalClock .digits div.nine .d5,
+#digitalClock .digits div.nine .d7 {
+	opacity: 1;
+}
+
+
+/* 0 */
+
+#digitalClock .digits div.zero .d1,
+#digitalClock .digits div.zero .d3,
+#digitalClock .digits div.zero .d4,
+#digitalClock .digits div.zero .d5,
+#digitalClock .digits div.zero .d6,
+#digitalClock .digits div.zero .d7 {
+	opacity: 1;
+}
+
+
+/* The dots */
+
+#digitalClock .digits div.dots {
+	width: 2px;
+}
+
+#digitalClock .digits div.dots:before,
+#digitalClock .digits div.dots:after {
+	width: 2px;
+	height: 2px;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 7px;
+}
+
+#digitalClock .digits div.dots:after {
+	top: 18px;
+}
+
+
+/*-------------------------
+		AM/PM
+--------------------------*/
+
+#digitalClock .ampm {
+	color: #184361;
+	/* #F3A829; */
+	position: relative;
+	top: 11px;
+}

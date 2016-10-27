@@ -1,9 +1,4 @@
-html {
-	padding: 10px;
-}
-
 body {
-	font-family: 'PT sans';
 	color: #222;
 	-webkit-transition-duration: .1s;
 	-moz-transition-duration: .1s;
@@ -24,26 +19,6 @@ body {
 	background-size: cover;
 }
 
-h1,
-h2,
-h3 {
-	text-shadow: 1px 1px 1px #AAA;
-}
-
-h1 {
-	font-size: 3em;
-}
-
-h2 {
-	font-size: 3.5em;
-}
-
-h3 {
-	font-size: 1em;
-}
-
-canvas {}
-
 label {
 	font-style: italic;
 	text-decoration: underline;
@@ -62,9 +37,10 @@ select {
 	width: 100%;
 }
 
-input, textarea {
+input,
+textarea {
 	text-transform: uppercase;
-	font-size: 1.5em;
+	font-size: 2em;
 	min-height: 30px;
 }
 
@@ -75,43 +51,17 @@ textarea {
 input#password {
 	text-transform: none;
 }
-input[type="text"], .bg-on {
+
+input[type="text"],
+.bg-on {
 	background-color: rgba(255, 255, 255, 0.55);
 }
 
 .bg-off {
-	background-color: rgba(255,255,255,0) !important;
-}
-.container {
-	width: 100%;
-	display: inline-block;
+	background-color: rgba(255, 255, 255, 0) !important;
 }
 
-.clock {
-
-}
-
-.clr-b {
-	clear: both;
-}
-
-.clr-l {
-	clear: left;
-}
-
-.clr-r {
-	clear: right;
-}
-
-#app-info {
-	float: right;
-	text-align: right;
-}
-
-#exam-info {
-	padding: 10px;
-	float: left;
-}
+#exam-info {}
 
 #exam-info label,
 #exam-info input,
@@ -125,11 +75,47 @@ input[type="text"], .bg-on {
 	float: none;
 }
 
-#bond-logo {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	float: right;
-	margin: 10px;
-	clear: both;
+#site-logo {
+	float: left;
+	width: 20px;
+	overflow: hidden;
+	margin-left: -50px;
+}
+
+#site-logo img {
+	zoom: 0.4;
+}
+
+
+/***** NEW STYLES *****/
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.navbar {
+	min-height: 0;
+}
+
+.navbar-brand {
+	padding: 10px 15px;
+	height: auto;
+}
+
+@media (min-width: 768px) {
+	.navbar-nav>li>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+
+/* Not required for template or sticky footer method. */
+
+body>.container {
+	padding: 60px 15px 0;
 }
