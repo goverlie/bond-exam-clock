@@ -99,12 +99,10 @@
 			<div class="col-sm-9 col-md-8">
 				<div class="row">
 					<div class="col-md-12 light" id="digitalClock">
-						<div >
 							<div class="display">
 								<div class="digits"></div>
 								<div class="ampm"></div>
 							</div>
-						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -131,6 +129,23 @@
 		});
 
 		$(document).ready(function() {
+			// input change
+
+			$('#perusal-time').on('change', function() { 
+				$('#end-time').val(null);
+				$('#start-time').val(null);
+				var endTimeDelta = ($('#perusal-time').val() * 60000) + ($('#exam-duration').val() * 60000);
+				datepair.remove();
+				//datepair = null;
+				console.log(datepair);
+				console.log(endTimeDelta);
+				datepair = new Datepair(examTimes,{
+				'defaultTimeDelta': endTimeDelta
+			});
+			console.log(datepair);
+				
+			});
+
 			//timepicker constructor
 			$('#exam-times .time').timepicker({
 				'scrollDefault': 'now',
@@ -141,7 +156,9 @@
 			});
 			// initialize datepair
 			var examTimes = document.getElementById('exam-times');
-			var datepair = new Datepair(examTimes);
+			var datepair = new Datepair(examTimes,{
+				//'defaultTimeDelta' : null
+			});
 
 			//initialize filter
 			$("#subject-code").mask("aaaa99-999", {
