@@ -65,10 +65,10 @@ input[type="text"],
 	background-color: rgba(255, 255, 255, 0) !important;
 }
 
-#myclock {
+#analogClock {
+	zoom: 1;
 	/*width: 100%;*/
 	text-align: center;
-	float: none;
 }
 
 #site-logo {

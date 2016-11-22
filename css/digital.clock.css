@@ -4,12 +4,15 @@
 
 #digitalClock {
 	zoom: 4.3;
-	margin: 20% auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;	
 }
 
 
 #digitalClock .display .digits {
-	float: left;
+	/*float: left;*/
+	text-align: center;
 }
 
 
@@ -287,5 +290,5 @@
 	color: #184361;
 	/* #F3A829; */
 	position: relative;
-	top: 11px;
+	/*top: 11px;*/
 }
