@@ -37,14 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-				<a class="navbar-brand" href="#">Exam Clock</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li>
-						<a id="toggleClock" href="#toggleClock"> <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Toggle Clock</a>
-					</li>
-				</ul>
+				<a class="navbar-brand" href="#">Bond University Online Examination Clock</a>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
@@ -82,11 +75,11 @@
 
 					<div class="row" id="exam-times">
 						<div class="col-md-6">
-							<label for='start-time'>Perusal Start</label>
+							<label for='start-time'><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Perusal Start</label>
 							<input type="text" name='start-time' id='start-time' class='time start' placeholder="Time"></input>
 						</div>
 						<div class="col-md-6">
-							<label for='end-time'>Exam End</label>
+							<label for='end-time'><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Exam End</label>
 							<input disabled type="text" name='end-time' id='end-time' class='time end' placeholder="Time"></input>
 						</div>
 					</div>
@@ -96,12 +89,21 @@
 							<input type="text" name='password' id='password' placeholder="No password"></input>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label>Exam Rules</label>
+							<audio controls>
+								<source src="exam-rules.mp3" type="audio/mpeg">
+								Your browser does not support the audio element.
+							</audio>
+						</div>
+					</div>
 					
 				</div>
 				<div class="col-sm-8 col-md 8">
 					<div class="row">
 						<div class="col-md-2">
-							<label for='perusal-time'>Perusal</label>
+							<label for='perusal-time'><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Perusal</label>
 							<select name='perusal-time' id='perusal-time'>
 								<option value="0" selected>None</option>
 								<option value="5">5 Min</option>
@@ -113,7 +115,7 @@
 							</select>
 						</div>
 						<div class="col-md-2">
-							<label for='exam-duration'>	Duration</label>
+							<label for='exam-duration'><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Duration</label>
 							<select name='exam-duration' id='exam-duration'>
 								<option value="30"> 30 Min</option>
 								<option value="60"> 1 Hour</option>
@@ -126,7 +128,7 @@
 							</select>
 						</div>
 						<div class="col-md-2">
-							<label for='bonus-time'>Extension</label>
+							<label for='bonus-time'><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Extension</label>
 							<select name='bonus-time' id='bonus-time'>
 								<option value="0" selected>None</option>
 								<option value="5">5 Min</option>
@@ -372,21 +374,6 @@
 					setTimeout(function(){update_time();},synced_delay);
 				})();
 			}); // End of Digital Clock
-
-			$('a#toggleClock').click(function () {
-				var isVisible = $( "#digitalClock" ).is( ":visible" );
-
-				if (isVisible) {
-					console.log("switching to analog");
-					$('#digitalClock').toggle();
-					$('#analogClock').fadeToggle();
-				} else {
-					console.log("switching to digital");
-					$('#digitalClock').fadeToggle();
-					$('#analogClock').toggle();
-				}
-       			
-    });
 		});
 	</script>
 </body>
