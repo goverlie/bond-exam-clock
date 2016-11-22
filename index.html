@@ -62,23 +62,49 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
-							<label for='perusal-time'>Perusal (minutes)</label>
-							<input name='perusal-time' id='perusal-time' placeholder="0"></input>
+						<div class="col-md-4">
+							<label for='perusal-time'>Perusal</label>
+							<select name='perusal-time' id='perusal-time'>
+								<option value="0" selected>None</option>
+								<option value="5">5 Min</option>
+								<option value="10">10 Min</option>
+								<option value="15">15 Min</option>
+								<option value="20">20 Min</option>
+								<option value="25">25 Min</option>
+								<option value="30">30 Min</option>
+							</select>
 						</div>
-						<div class="col-md-6">
-							<label for='exam-duration'>	Duration (minutes)</label>
-							<input name='exam-duration' id='exam-duration' placeholder="0"></input>
+						<div class="col-md-4">
+							<label for='exam-duration'>	Duration</label>
+							<select name='exam-duration' id='exam-duration'>
+								<option value="30"> 30 Min</option>
+								<option value="60"> 1 Hour</option>
+								<option value="90"> 1.5 Hours</option>
+								<option value="120" selected> 2 Hours</option>
+								<option value="150"> 2.5 Hours</option>
+								<option value="180"> 3 Hours</option>
+								<option value="210"> 3.5 Hours</option>
+								<option value="240"> 4 Hours</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<label for='bonus-time'>Extension</label>
+							<select name='bonus-time' id='bonus-time'>
+								<option value="0" selected>None</option>
+								<option value="5">5 Min</option>
+								<option value="10">10 Min</option>
+								<option value="15">15 Min</option>
+							</select>
 						</div>
 					</div>
 					<div class="row" id="exam-times">
 						<div class="col-md-6">
-							<label for='start-time'>Exam Start</label>
+							<label for='start-time'>Perusal Start</label>
 							<input type="text" name='start-time' id='start-time' class='time start' placeholder="Time"></input>
 						</div>
 						<div class="col-md-6">
 							<label for='end-time'>Exam End</label>
-							<input type="text" name='end-time' id='end-time' class='time end' placeholder="Time"></input>
+							<input disabled type="text" name='end-time' id='end-time' class='time end' placeholder="Time"></input>
 						</div>
 					</div>
 					<div class="row">
@@ -99,10 +125,10 @@
 			<div class="col-sm-9 col-md-8">
 				<div class="row">
 					<div class="col-md-12 light" id="digitalClock">
-							<div class="display">
-								<div class="digits"></div>
-								<div class="ampm"></div>
-							</div>
+						<div class="display">
+							<div class="digits"></div>
+							<div class="ampm"></div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -117,7 +143,6 @@
 	<script language="javascript" type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.timepicker.min.js"></script>
-	<script language="javascript" type="text/javascript" src="js/datepair.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jquery.thooClock.js"></script>
 	<script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/moment.min.js"></script>
@@ -125,40 +150,96 @@
 
 	<script language="javascript">
 		$(window).resize(function() {
-			window.location.reload()
+			//window.location.reload()
 		});
 
+	function updateEndTime(retry=0) {
+		console.clear();
+
+		var perusalTime = parseInt($('#perusal-time').val());
+		if (!perusalTime) perusalTime = 0;
+		var examDuration = parseInt($('#exam-duration').val());
+		if (!examDuration) examDuration = 0;
+		var bonusTime = parseInt($('#bonus-time').val());
+		if (!bonusTime) bonusTime = 0;
+		var extraTime = perusalTime + examDuration + bonusTime;
+		if (!extraTime) extraTime = 60; //default to 1 hour
+
+		console.log('perusalTime = ' + perusalTime);
+		console.log('examDuration = ' + examDuration);
+		console.log('extraTime = ' + extraTime);
+		var startTime = $('#exam-times .time.start').val();
+		console.log('startTime = ' + startTime);
+
+		var ampm = startTime.slice(startTime.length - 2,startTime.length-1);
+		console.log('ampm = ' + ampm);
+
+		if (!startTime || !ampm) {
+			var count = retry;
+			if (count <= 3) {
+				count++;
+				console.clear();
+				console.log("Invalid Start Time");
+				console.log("trying again..")
+				updateEndTime(count);
+				return;
+			}
+			else {
+				console.log("Couldn't update End Time")
+				return;
+			}
+			
+		}
+
+		var examTime = startTime.substring(0,startTime.length - 2);
+			examTime = examTime.split(':');
+		if (ampm == 'a') {
+			if (parseInt(examTime[0]) == 12) {
+				examTime[0] = 0;
+			}
+		} else {
+			if(parseInt(examTime[0]) != 12) {
+				examTime[0] = parseInt(examTime[0]) + 12;
+			}
+		}
+		console.log('t0 = ' + examTime[0]);
+
+		console.log("examTime[0]: " + examTime[0]);
+		console.log("examTime[1]: " + examTime[1]);
+		var currentTime = moment({hour:examTime[0], minute:examTime[1]});
+		var endTime = currentTime.add(extraTime,'m');
+		endTime = endTime.format("LT");
+		
+		console.log('endTime = ' + endTime);
+		console.log("changing end time...");
+		$('#exam-times .time.end').val(endTime);
+
+}
 		$(document).ready(function() {
 			// input change
+			if (!$('#exam-duration').val()) $('#exam-duration').val("60");
 
-			$('#perusal-time').on('change', function() { 
-				$('#end-time').val(null);
-				$('#start-time').val(null);
-				var endTimeDelta = ($('#perusal-time').val() * 60000) + ($('#exam-duration').val() * 60000);
-				datepair.remove();
-				//datepair = null;
-				console.log(datepair);
-				console.log(endTimeDelta);
-				datepair = new Datepair(examTimes,{
-				'defaultTimeDelta': endTimeDelta
+			//$('#perusal-time').on('change', function() { 
+			$('input').on('change', function() { 
+				updateEndTime();
 			});
-			console.log(datepair);
-				
+
+			$('select').on('change',function() {
+				updateEndTime();
 			});
 
 			//timepicker constructor
 			$('#exam-times .time').timepicker({
 				'scrollDefault': 'now',
-				'timeFormat': 'g:ia',
+  				'timeFormat':'g:i a',
 				'step': 15,
 				'showDuration': true,
 				'forceRoundTime': false
 			});
+
+			
 			// initialize datepair
 			var examTimes = document.getElementById('exam-times');
-			var datepair = new Datepair(examTimes,{
-				//'defaultTimeDelta' : null
-			});
 
 			//initialize filter
 			$("#subject-code").mask("aaaa99-999", {

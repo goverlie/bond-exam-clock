@@ -7,9 +7,6 @@
 	margin: 20% auto;
 }
 
-#digitalClock:after {}
-
-#digitalClock .display {}
 
 #digitalClock .display .digits {
 	float: left;
@@ -20,7 +17,6 @@
 	Light color theme
 --------------------------*/
 
-#digitalClock.light {}
 
 #digitalClock.light:after {
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -36,8 +32,6 @@
 	background-color: #F3A829;
 	border-radius: 10px;
 }
-
-#digitalClock.light .display {}
 
 
 /*-------------------------

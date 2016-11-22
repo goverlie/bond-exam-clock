@@ -3,7 +3,7 @@ body {
 	-webkit-transition-duration: .1s;
 	-moz-transition-duration: .1s;
 	-o-transition-duration: .1s;
-	-transition-duration: .1s;
+	transition-duration: .1s;
 	animation-timing-function: ease-in-out;
 	-webkit-animation-timing-function: ease-in-out;
 	/*background-image: url(../img/vignette.png);*/
@@ -52,6 +52,10 @@ input#password {
 	text-transform: none;
 }
 
+input[type="text"][disabled] {
+	cursor: not-allowed;
+}
+
 input[type="text"],
 .bg-on {
 	background-color: rgba(255, 255, 255, 0.55);
@@ -59,14 +63,6 @@ input[type="text"],
 
 .bg-off {
 	background-color: rgba(255, 255, 255, 0) !important;
-}
-
-#exam-info {}
-
-#exam-info label,
-#exam-info input,
-#exam-info textarea {
-	/*display: block;*/
 }
 
 #myclock {
@@ -84,6 +80,10 @@ input[type="text"],
 
 #site-logo img {
 	zoom: 0.4;
+}
+
+#end-time {
+	color: red;
 }
 
 
