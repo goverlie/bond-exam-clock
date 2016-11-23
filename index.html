@@ -154,7 +154,9 @@
 	<script language="javascript" type="text/javascript" src="js/jquery.digitalClock.js"></script>
 
 	<script language="javascript" type="text/javascript">
-		function updateEndTime(attempt = 0) {
+		function updateEndTime(attempt) {
+			if (typeof(attempt)==='undefined') attempt = 0;
+			
 			console.clear();
 
 			var perusalTime = parseInt($('#perusal-time').val());
