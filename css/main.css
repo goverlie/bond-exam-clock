@@ -86,7 +86,9 @@ input[type="text"],
 	color: red;
 }
 
-
+audio {
+	width: 100%;
+}
 /***** NEW STYLES *****/
 
 
