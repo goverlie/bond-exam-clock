@@ -3,12 +3,17 @@
 --------------------------*/
 
 #digitalClock {
-	zoom: 4.3;
+	/*zoom: 4.3;
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 20px;*/
 	text-align: center;	
 }
 
+#digitalClock .display {
+	float: left;
+	margin-left: 30px;
+	zoom: 4.3;
+}
 
 #digitalClock .display .digits {
 	/*float: left;*/
