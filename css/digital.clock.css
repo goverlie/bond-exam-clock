@@ -60,9 +60,11 @@
 #digitalClock .digits div span {
 	opacity: 0;
 	position: absolute;
-	-webkit-transition: 0.15s;
-	-moz-transition: 0.15s;
-	transition: 0.15s;
+
+}
+
+#digitalClock .seconds {
+	opacity: 0.1;
 }
 
 #digitalClock .digits div span:before,
@@ -272,6 +274,7 @@
 
 #digitalClock .digits div.dots {
 	width: 2px;
+	opacity: 0.4;
 }
 
 #digitalClock .digits div.dots:before,
