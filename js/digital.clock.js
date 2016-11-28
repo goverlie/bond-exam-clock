@@ -73,8 +73,7 @@
 					digits.m2.attr('class', digit_to_name[now[3]]);
 					digits.s1.attr('class', digit_to_name[now[4]] + " seconds");
 					digits.s2.attr('class', digit_to_name[now[5]] + " seconds");
-					//digits.s1.attr('style', "opacity:0.4;");
-					//digits.s2.attr('style', "opacity:0.4;");
+
 					
 
 
