@@ -1,7 +1,7 @@
 body {
 	color: #222;
-
-	/*background-image: url(../img/vignette.png);*/
+	transform-origin: top;
+	transform: scale(1.4);
 	text-rendering: optimizeLegibility;
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
